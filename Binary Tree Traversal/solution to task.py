@@ -36,3 +36,4 @@ def post_order(node):
 
     traverse(node)
     return result
+
