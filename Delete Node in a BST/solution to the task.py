@@ -13,19 +13,18 @@ class Solution:
         if key < root.val:
             root.left = self.deleteNode(root.left, key)
         elif key > root.val:
-            
             root.right = self.deleteNode(root.right, key)
+
         else:
             if root.left is None:
                 return root.right
-
             elif root.right is None:
                 return root.left
 
-            current = root.right
-            while current.left is not None:
-                current = current.left
+            current = root.left
+            while current.right:
+                current = current.right
 
             root.val = current.val
-            root.right = self.deleteNode(root.right, root.val)
+            root.left = self.deleteNode(root.left, root.val)
         return root
